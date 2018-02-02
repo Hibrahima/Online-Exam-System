@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "DoQuiz";
+}
+ 
+<div class="container-fluid">
+@using (Html.BeginForm("GetData", "Exam", FormMethod.Get, new {@id="post_exam"}))
+{
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-12" style="margin-bottom:20px;">
+            <label style="margin-right:8px;">Kategori</label> @Html.DropDownList("categoryNames", (SelectList)ViewBag.categoryNames, new  { @class="select_change"})
+        
+            <label style="margin-right:8px; margin-left:8px;">Seviye</label> @Html.DropDownList("quizLevels", (SelectList)ViewBag.quizLevels, new { @class = "select_change" })
+
+            <label style="margin-right:8px; margin-left:8px;">Dil</label> @Html.DropDownList("langNames", (SelectList)ViewBag.langNames, new { @class = "select_change" })
+
+            <label style="margin-right:8px; margin-left:8px;">Soru Sayisi</label> <select id="quizQuestNumber"></select>
+
+        </div>
+
+    </div>
+}
+    
+    <button type="submit"  class="btn btn-default" id="quiz_start_button"> Basla </button>
+
+    <div class="row">
+        <div class="hide_show_me">
+            <div class="col-sm-7">
+                <div class="firstRect" style="margin-top:20px; height:250px;">
+                    <label id="write_quest_text"> </label> <label id="write_quest_points"></label><br />
+                    <input type="radio" name="optradio"  id="choice1"> <span></span> <br/>
+                    <input type="radio" name="optradio"  id="choice2"> <span></span> <br />
+                    <input type="radio" name="optradio"  id="choice3"> <span></span> <br />
+                    <input type="radio" name="optradio"  id="choice4"> <span></span> <br /> <br />
+                    <button class="btn btn-default" style="float:right;" id="next_question_button"> Devam </button>
+                </div>
+            </div>
+        </div>
+        <div class="hide_show_me">
+            <div class="col-sm-5">
+                <div class="firstRect">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Zaman</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" id="exam_time">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Dogru Cevap</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" id="true_quest">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Yanlis Cevap</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" id="false_quest">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Skor</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" id="score">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <input type="hidden" value='@ViewContext.RouteData.Values["culture"]' id="routeDataId" />
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/exam")
+}

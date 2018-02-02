@@ -1,0 +1,65 @@
+﻿@model OnlineExamSytem.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row" style="margin-bottom:10px;">
+    @Html.Partial("_UserPartial")
+</div>
+
+<div>
+    <h4>ApplicationUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DogumGunu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DogumGunu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KayitTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KayitTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+

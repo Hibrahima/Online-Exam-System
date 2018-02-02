@@ -1,0 +1,122 @@
+﻿@model OnlineExamSytem.Models.Exam
+
+@{
+    ViewBag.Title = "ShowExamDetails";
+}
+
+<h2>ShowExamDetails</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrueQuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrueQuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FalseQuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FalseQuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExamTime)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+  
+ @foreach (var item in Model.ListQuestion)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.questionLabel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choiceA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choiceB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choiceC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.choiceD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.points)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+        </tr>
+    }
+
+</table>
+

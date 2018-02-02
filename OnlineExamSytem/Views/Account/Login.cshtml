@@ -1,0 +1,62 @@
+﻿@using OnlineExamSytem.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/loginStyle")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="center">
+        <div class="container">
+            <div class="card card-container">
+                <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+                <img id="profile-img" class="profile-img-card" src="~/Assets/login.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div style="margin-bottom:10px;">
+                        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control", placeholder = "Kullanıcı Adı", autofocus=true })
+                        @Html.ValidationMessageFor(m => m.Ad, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Şifre" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div id="remember" class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+
+
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                    @*   <p>
+                            @Html.ActionLink("Register as a new user", "Register")
+                        </p>
+                         Enable this once you have account confirmation enabled for password reset functionality
+                            <p>
+                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                            </p>*@
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

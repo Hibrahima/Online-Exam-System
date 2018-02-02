@@ -1,0 +1,82 @@
+﻿@model OnlineExamSytem.Models.Exam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrueQuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrueQuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FalseQuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FalseQuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExamID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

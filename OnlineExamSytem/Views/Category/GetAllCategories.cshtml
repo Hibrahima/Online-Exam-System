@@ -1,0 +1,32 @@
+﻿@model IEnumerable<OnlineExamSytem.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" style="margin-bottom:10px;">
+    @Html.Partial("_CategoryPartial")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th> Opsiyonlar</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

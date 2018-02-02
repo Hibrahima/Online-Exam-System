@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Online Examm System", "Dashboard", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(Resource.layout_dsh, "Dashboard", "Home")</li>
+                    <li>@Html.ActionLink(Resource.layout_about, "About", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span>
+                              @Resource.layout_language   <i class="fa fa-caret-down"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li> @Html.ActionLink(Resource.layout_language_choice_tr, "SetCulture", "Language", new { culture = "tr", returnUrl = this.Request.RawUrl }, null) </li>
+                            <li class="divider"></li>
+                            <li> @Html.ActionLink(Resource.layout_language_choice_fr, "SetCulture", "Language", new { culture = "fr", returnUrl = this.Request.RawUrl }, null) </li>
+                            <li class="divider"></li>
+                            <li> @Html.ActionLink(Resource.layout_language_choice_en, "SetCulture", "Language", new { culture = "en", returnUrl = this.Request.RawUrl }, null) </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span>
+                                @User.Identity.Name   <i class="fa fa-caret-down"></i> </span> 
+                            <img src="~/Assets/img.jpg" alt="Dangerfield" style=" width:20px; height:25px; border-radius:50%;" />
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li> <img src="~/Assets/img.jpg" alt="Dangerfield" style=" width:160px; height:150px;"/></li>
+                            <li class="divider"></li>
+                            <li> 
+                                 @Html.ActionLink(Resource.layout_session_settings, "Dashboard", "Home", null, new { @class = "fa fa-cog" }) 
+                            </li>
+                            <li class="divider"></li>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                
+                                    <li><a class="fa fa-sign-out" href="javascript:document.getElementById('logoutForm').submit()">@Resource.layout_session_close</a></li>
+                               
+                            }
+                            
+                            <li class="divider"></li>
+                            <li>
+                                @Html.ActionLink(Resource.layout_profil, "Dashboard", "Home", null, new { @class = "fa fa-user-circle" })
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+                <div class="col-sm-3">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading" style="text-align:center;">@Resource.lay_panel_left_title</div>
+                        <div class="panel-body">
+                            <img src="~/Assets/graduation_cup.jpg" alt="graduation_cup" style="display: block; margin-left: auto; margin-right: auto;"/>
+                        </div>
+                        <a href="@Url.Action("Dashboard", "Home")" class="list-group-item">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true" style="font-size:20px; color:#D81B60;"></span>
+                            <label class="lay_left_menu_texts"> @Resource.layout_dsh </label>
+                        </a>
+@if (User.IsInRole("Admin"))
+{
+                        <a href="@Url.Action("GetAllCategories", "Category")" class="list-group-item">
+                            <span class="glyphicon glyphicon-folder-open" aria-hidden="true" style="font-size:20px; color:#B71C1C;"></span>
+                            <span class="badge">@ViewBag.catCount</span>
+                            <label class="lay_left_menu_texts"> @Resource.layout_category </label>
+                        </a>
+
+                        <a href="@Url.Action("GetAllUsers", "Users")" class="list-group-item">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:20px; color:#6E88A3;"></span>
+                            <span class="badge">@ViewBag.userCount</span>
+                            <label class="lay_left_menu_texts"> @Resource.layout_user </label>
+                        </a>
+}
+                        <a href="@Url.Action("Index", "Exam")" class="list-group-item">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true" style="font-size:20px; color:#00796B;"></span>
+                            <span class="badge">@ViewBag.examCount</span>
+                            <label class="lay_left_menu_texts"> @Resource.layout_exam </label>
+                        </a>
+@if (User.IsInRole("Admin"))
+{
+                        <a href="@Url.Action("GetAllQuestions", "Question")" class="list-group-item">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="font-size:20px; color:#757575;"></span>
+                            <span class="badge"> @ViewBag.questCount </span>
+                            <label class="lay_left_menu_texts"> @Resource.layout_question </label>
+
+                        </a>
+}
+                        <a href="@Url.Action("ChangePassword", "Manage")" class="list-group-item">
+                            <i class="fa fa-cog" aria-hidden="true" style="font-size:20px; color:#1976D2;"></i>
+                            <label class="lay_left_menu_texts"> @Resource.layout_settings </label>
+                        </a>
+                    </div>
+                </div>
+
+            <div class="col-sm-9">
+                 @RenderBody()
+           </div>
+         </div>
+    </div>
+   
+    <footer>
+     
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

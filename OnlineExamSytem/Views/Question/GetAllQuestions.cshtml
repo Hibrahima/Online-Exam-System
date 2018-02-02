@@ -1,0 +1,90 @@
+﻿@model IEnumerable<OnlineExamSytem.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("_QuestionPartial")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.questionLabel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choiceA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choiceB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choiceC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.choiceD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.answer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.points)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.questionLabel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choiceA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choiceB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choiceC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.choiceD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.answer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.points)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.language)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

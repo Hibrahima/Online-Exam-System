@@ -1,0 +1,80 @@
+﻿@model OnlineExamSytem.Models.Exam
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrueQuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrueQuestionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FalseQuestionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FalseQuestionNumber)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

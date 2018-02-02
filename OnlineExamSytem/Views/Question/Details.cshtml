@@ -1,0 +1,115 @@
+﻿@model OnlineExamSytem.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row" style="margin-bottom:10px;">
+    <div class="col-sm-12">
+        @Html.Partial("_QuestionPartial")
+    </div>
+</div>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.questionLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.questionLabel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choiceA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choiceA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choiceB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choiceB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choiceC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choiceC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.choiceD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.choiceD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.level)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.level)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OnlineExamSytem.Models.Exam>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div style="margin-top:20px;">
+    @Html.ActionLink("Quiz ol", "DoQuiz", "Exam", null, new { @class = "btn btn-default" })
+</div>
+<div class="container-fluid" style="margin-top:20px;">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                <div class="lay_user">
+                    <div class="block">
+                        @Html.ActionLink("Detaylandır", "ShowExamDetails", "Exam", new { id = item.ExamID }, new { @class = "dsh_a" }) <br />
+                        @Html.DisplayFor(modelItem => item.Identifier)
+                        @Html.DisplayFor(modelItem => item.Date)
+                        @Html.DisplayFor(modelItem => item.Score)
+                        @Html.DisplayFor(modelItem => item.Owner)
+                        @Html.DisplayFor(modelItem => item.QuestionNumber)
+                        @Html.DisplayFor(modelItem => item.TrueQuestionNumber)
+                        @Html.DisplayFor(modelItem => item.FalseQuestionNumber)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
